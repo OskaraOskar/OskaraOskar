@@ -17,14 +17,14 @@ jobs:
       - name: Set Up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '18'
 
       - name: Fetch User-Wide GitHub Statistics (Includes Private Repos)
         env:
           GH_TOKEN: ${{ secrets.GH_STATS_TOKEN }}
         run: |
           echo "Fetching user-wide statistics..."
-
+          
           curl -H "Authorization: token $GH_TOKEN" \
                -H "Accept: application/vnd.github+json" \
                "https://api.github.com/users/${{ github.repository_owner }}" \
@@ -39,16 +39,6 @@ jobs:
                -H "Accept: application/vnd.github+json" \
                "https://api.github.com/search/issues?q=author:${{ github.repository_owner }}&type=pr" \
                -o user-pull-requests.json
-
-          curl -H "Authorization: token $GH_TOKEN" \
-               -H "Accept: application/vnd.github+json" \
-               "https://api.github.com/search/issues?q=commenter:${{ github.repository_owner }}" \
-               -o user-comments.json
-
-          curl -H "Authorization: token $GH_TOKEN" \
-               -H "Accept: application/vnd.github+json" \
-               "https://api.github.com/search/issues?q=assignee:${{ github.repository_owner }}" \
-               -o user-assigned-issues.json
 
       - name: Generate GitHub Readme Stats (Entire User)
         env:
@@ -68,13 +58,15 @@ jobs:
                -o github-streak-stats.svg
 
       - name: Generate Contribution Snake Graph (User-Wide)
-        uses: Platane/snk@master
-        with:
-          github_user_name: ${{ github.repository_owner }}
-          svg_out_path: dist/github-contribution-grid-snake.svg
-          outputs: |
-            dist/github-snake.svg
-            dist/github-snake-dark.svg?palette=github-dark
+        run: |
+          echo "Generating contribution snake graph..."
+          mkdir -p dist  # Ensure the directory exists
+          curl -L "https://github.com/${{ github.repository_owner }}/${{ github.repository }}/blob/output/github-contribution-grid-snake.svg?raw=true" -o dist/github-snake.svg
+          if [ -f "dist/github-snake.svg" ]; then
+            echo "Snake graph generated successfully!"
+          else
+            echo "⚠️ Warning: Snake graph was not generated."
+          fi
 
       - name: Upload Snake Contribution Graph
         uses: actions/upload-artifact@v4
@@ -94,6 +86,14 @@ jobs:
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
-          git add user-profile.json user-repos.json user-pull-requests.json user-comments.json user-assigned-issues.json github-readme-stats.svg github-top-langs.svg github-streak-stats.svg capsule-header.svg dist/github-snake.svg
-          git commit -m "Update README assets (User-Wide Stats) [Automated]"
-          git push
+          git add user-profile.json user-repos.json user-pull-requests.json github-readme-stats.svg github-top-langs.svg github-streak-stats.svg capsule-header.svg
+
+          # Check if the Snake Graph exists before adding it
+          if [ -f "dist/github-snake.svg" ]; then
+            git add dist/github-snake.svg
+          else
+            echo "⚠️ Skipping snake graph commit as the file is missing."
+          fi
+          
+          git commit -m "Update README assets (User-Wide Stats) [Automated]" || echo "No changes to commit."
+          git push || echo "No changes to push."
