@@ -1,9 +1,9 @@
-name: Update GitHub Stats
+name: Update GitHub Profile Assets
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Runs daily at midnight UTC
-  workflow_dispatch:  # Allows manual runs
+    - cron: '0 0 * * *'
+  workflow_dispatch: 
 
 jobs:
   update-readme:
@@ -21,10 +21,26 @@ jobs:
           curl -o top-langs.svg "https://github-readme-stats.vercel.app/api/top-langs/?username=OskaraOskar&layout=compact&theme=tokyonight&langs_count=8&count_private=true&token=${GH_STATS_TOKEN}"
           curl -o streak-stats.svg "https://streak-stats.demolab.com?user=OskaraOskar&theme=tokyonight&count_private=true"
 
+      - name: Generate Snake Contribution Grid
+        uses: Platane/snk@master
+        with:
+          github_user_name: OskaraOskar
+          outputs: dist/github-contribution-grid-snake.svg
+
+      - name: Fetch Random Quote
+        run: |
+          curl -o github-quote.svg "https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight"
+
+      - name: Upload assets
+        uses: actions/upload-artifact@v3
+        with:
+          name: profile-assets
+          path: dist/
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add github-stats.svg top-langs.svg streak-stats.svg
-          git commit -m "Update GitHub Stats [Automated]"
+          git add github-stats.svg top-langs.svg streak-stats.svg github-contribution-grid-snake.svg github-quote.svg
+          git commit -m "Update GitHub Profile Assets [Automated]"
           git push
