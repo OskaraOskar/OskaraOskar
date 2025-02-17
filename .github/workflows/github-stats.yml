@@ -1,74 +1,73 @@
-name: Fetch GitHub Stats and Store as JSON
+name: Generate README Assets
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Runs every day at midnight UTC
-  workflow_dispatch:  # Allows manual execution
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+  workflow_dispatch:  # Allows manual trigger
 
 jobs:
-  fetch-github-stats:
+  generate-assets:
+    name: Generate README Assets
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📂 Checkout Repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: 🔐 Fetch GitHub Contribution Data
+      - name: Set Up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Fetch GitHub Repository Statistics (Includes Private Repos)
+        env:
+          GH_TOKEN: ${{ secrets.GH_STATS_TOKEN }}
         run: |
-          mkdir -p stats
-          echo "Fetching GitHub statistics for OskaraOskar..."
-          
-          PROFILE_DATA=$(curl -s -H "Authorization: token ${{ secrets.GH_STATS_TOKEN }}" \
-            -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/users/OskaraOskar)
+          echo "Fetching repository statistics..."
+          curl -H "Authorization: Bearer $GH_TOKEN" \
+          -H "Accept: application/vnd.github+json" \
+          "https://api.github.com/repos/${{ github.repository }}/stats/contributors" \
+          -o stats.json
 
-          PRIVATE_REPOS=$(echo "$PROFILE_DATA" | jq '.total_private_repos')
-          PUBLIC_REPOS=$(echo "$PROFILE_DATA" | jq '.public_repos')
-          FOLLOWERS=$(echo "$PROFILE_DATA" | jq '.followers')
+          curl -H "Authorization: Bearer $GH_TOKEN" \
+          -H "Accept: application/vnd.github+json" \
+          "https://api.github.com/repos/${{ github.repository }}/stats/code_frequency" \
+          -o code_frequency.json
 
-          DAILY_ACTIVITY=$(curl -s -H "Authorization: token ${{ secrets.GH_STATS_TOKEN }}" \
-            -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/OskaraOskar/OskaraOskar/stats/punch_card)
+          curl -H "Authorization: Bearer $GH_TOKEN" \
+          -H "Accept: application/vnd.github+json" \
+          "https://api.github.com/repos/${{ github.repository }}/stats/commit_activity" \
+          -o commit_activity.json
 
-          WEEKLY_ACTIVITY=$(curl -s -H "Authorization: token ${{ secrets.GH_STATS_TOKEN }}" \
-            -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/OskaraOskar/OskaraOskar/stats/code_frequency)
+          curl -H "Authorization: Bearer $GH_TOKEN" \
+          -H "Accept: application/vnd.github+json" \
+          "https://api.github.com/repos/${{ github.repository }}/stats/punch_card" \
+          -o punch_card.json
 
-          YEARLY_ACTIVITY=$(curl -s -H "Authorization: token ${{ secrets.GH_STATS_TOKEN }}" \
-            -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/OskaraOskar/OskaraOskar/stats/commit_activity)
-
-          LANGUAGES=$(curl -s -H "Authorization: token ${{ secrets.GH_STATS_TOKEN }}" \
-            -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/users/OskaraOskar/repos?per_page=100 | jq 'map(.language) | unique | sort')
-
-          CODE_STATS=$(curl -s -H "Authorization: token ${{ secrets.GH_STATS_TOKEN }}" \
-            -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/OskaraOskar/OskaraOskar/stats/participation)
-
-          # Construct JSON structure
-          echo "{
-            \"profile\": {
-              \"private_repos\": $PRIVATE_REPOS,
-              \"public_repos\": $PUBLIC_REPOS,
-              \"followers\": $FOLLOWERS
-            },
-            \"commit_activity\": {
-              \"daily\": $DAILY_ACTIVITY,
-              \"weekly\": $WEEKLY_ACTIVITY,
-              \"yearly\": $YEARLY_ACTIVITY
-            },
-            \"languages\": $LANGUAGES,
-            \"code_changes\": {
-              \"total_commits_per_week\": $(echo "$CODE_STATS" | jq '.all'),
-              \"owner_commits_per_week\": $(echo "$CODE_STATS" | jq '.owner')
-            }
-          }" > stats/github-stats.json
-
-      - name: 🛠️ Commit & Push Updated Stats
+      - name: Generate GitHub Readme Stats (Private Repo Support)
+        env:
+          GH_TOKEN: ${{ secrets.GH_STATS_TOKEN }}
         run: |
-          git config --global user.name "github-actions[bot]"
+          echo "Generating GitHub Readme Stats..."
+          curl -H "Authorization: Bearer $GH_TOKEN" \
+          "https://github-readme-stats.vercel.app/api?username=${{ github.repository_owner }}&show_icons=true&theme=radical&count_private=true" \
+          -o github-readme-stats.svg
+
+          curl -H "Authorization: Bearer $GH_TOKEN" \
+          "https://github-readme-stats.vercel.app/api/top-langs/?username=${{ github.repository_owner }}&layout=compact&count_private=true" \
+          -o github-top-langs.svg
+
+      - name: Generate Snake Animation
+        run: |
+          curl "https://github.com/${{ github.repository_owner }}.github.io/snake/snake.svg" \
+          -o snake-animation.svg
+
+      - name: Commit and Push Generated Assets
+        env:
+          GH_TOKEN: ${{ secrets.GH_STATS_TOKEN }}
+        run: |
+          git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
-          git add stats/github-stats.json
-          git commit -m "Auto-update GitHub stats JSON" || echo "No changes to commit"
-          git push || echo "No changes to push"
+          git add stats.json code_frequency.json commit_activity.json punch_card.json github-readme-stats.svg github-top-langs.svg snake-animation.svg
+          git commit -m "Update README assets [Automated]"
+          git push
