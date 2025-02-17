@@ -1,4 +1,4 @@
-name: Generate README Assets
+name: Generate User-Wide README Assets
 
 on:
   schedule:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   generate-assets:
-    name: Generate README Assets
+    name: Generate User-Wide README Assets
     runs-on: ubuntu-latest
 
     steps:
@@ -19,48 +19,74 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Fetch GitHub Repository Statistics (Includes Private Repos)
+      - name: Fetch User-Wide GitHub Statistics (Includes Private Repos)
         env:
           GH_TOKEN: ${{ secrets.GH_STATS_TOKEN }}
         run: |
-          echo "Fetching repository statistics..."
-          curl -H "Authorization: Bearer $GH_TOKEN" \
-          -H "Accept: application/vnd.github+json" \
-          "https://api.github.com/repos/${{ github.repository }}/stats/contributors" \
-          -o stats.json
+          echo "Fetching user-wide statistics..."
 
-          curl -H "Authorization: Bearer $GH_TOKEN" \
-          -H "Accept: application/vnd.github+json" \
-          "https://api.github.com/repos/${{ github.repository }}/stats/code_frequency" \
-          -o code_frequency.json
+          curl -H "Authorization: token $GH_TOKEN" \
+               -H "Accept: application/vnd.github+json" \
+               "https://api.github.com/users/${{ github.repository_owner }}" \
+               -o user-profile.json
 
-          curl -H "Authorization: Bearer $GH_TOKEN" \
-          -H "Accept: application/vnd.github+json" \
-          "https://api.github.com/repos/${{ github.repository }}/stats/commit_activity" \
-          -o commit_activity.json
+          curl -H "Authorization: token $GH_TOKEN" \
+               -H "Accept: application/vnd.github+json" \
+               "https://api.github.com/users/${{ github.repository_owner }}/repos?per_page=100" \
+               -o user-repos.json
 
-          curl -H "Authorization: Bearer $GH_TOKEN" \
-          -H "Accept: application/vnd.github+json" \
-          "https://api.github.com/repos/${{ github.repository }}/stats/punch_card" \
-          -o punch_card.json
+          curl -H "Authorization: token $GH_TOKEN" \
+               -H "Accept: application/vnd.github+json" \
+               "https://api.github.com/search/issues?q=author:${{ github.repository_owner }}&type=pr" \
+               -o user-pull-requests.json
 
-      - name: Generate GitHub Readme Stats (Private Repo Support)
+          curl -H "Authorization: token $GH_TOKEN" \
+               -H "Accept: application/vnd.github+json" \
+               "https://api.github.com/search/issues?q=commenter:${{ github.repository_owner }}" \
+               -o user-comments.json
+
+          curl -H "Authorization: token $GH_TOKEN" \
+               -H "Accept: application/vnd.github+json" \
+               "https://api.github.com/search/issues?q=assignee:${{ github.repository_owner }}" \
+               -o user-assigned-issues.json
+
+      - name: Generate GitHub Readme Stats (Entire User)
         env:
           GH_TOKEN: ${{ secrets.GH_STATS_TOKEN }}
         run: |
-          echo "Generating GitHub Readme Stats..."
-          curl -H "Authorization: Bearer $GH_TOKEN" \
-          "https://github-readme-stats.vercel.app/api?username=${{ github.repository_owner }}&show_icons=true&theme=radical&count_private=true" \
-          -o github-readme-stats.svg
+          echo "Generating overall GitHub Readme Stats..."
+          curl -H "Authorization: token $GH_TOKEN" \
+               "https://github-readme-stats.vercel.app/api?username=${{ github.repository_owner }}&show_icons=true&theme=radical&count_private=true&include_all_commits=true" \
+               -o github-readme-stats.svg
 
-          curl -H "Authorization: Bearer $GH_TOKEN" \
-          "https://github-readme-stats.vercel.app/api/top-langs/?username=${{ github.repository_owner }}&layout=compact&count_private=true" \
-          -o github-top-langs.svg
+          curl -H "Authorization: token $GH_TOKEN" \
+               "https://github-readme-stats.vercel.app/api/top-langs/?username=${{ github.repository_owner }}&layout=compact&count_private=true" \
+               -o github-top-langs.svg
 
-      - name: Generate Snake Animation
+          curl -H "Authorization: token $GH_TOKEN" \
+               "https://github-readme-streak-stats.herokuapp.com/?user=${{ github.repository_owner }}&theme=radical&hide_border=true" \
+               -o github-streak-stats.svg
+
+      - name: Generate Contribution Snake Graph (User-Wide)
+        uses: Platane/snk@master
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          svg_out_path: dist/github-contribution-grid-snake.svg
+          outputs: |
+            dist/github-snake.svg
+            dist/github-snake-dark.svg?palette=github-dark
+
+      - name: Upload Snake Contribution Graph
+        uses: actions/upload-artifact@v3
+        with:
+          name: github-snake
+          path: dist/github-snake.svg
+
+      - name: Generate Capsule-Render Header Image
         run: |
-          curl "https://github.com/${{ github.repository_owner }}.github.io/snake/snake.svg" \
-          -o snake-animation.svg
+          echo "Generating Capsule Header..."
+          curl "https://capsule-render.vercel.app/api?text=Welcome%20to%20My%20GitHub!&animation=fadeIn&type=waving&color=gradient&height=200" \
+               -o capsule-header.svg
 
       - name: Commit and Push Generated Assets
         env:
@@ -68,6 +94,6 @@ jobs:
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
-          git add stats.json code_frequency.json commit_activity.json punch_card.json github-readme-stats.svg github-top-langs.svg snake-animation.svg
-          git commit -m "Update README assets [Automated]"
+          git add user-profile.json user-repos.json user-pull-requests.json user-comments.json user-assigned-issues.json github-readme-stats.svg github-top-langs.svg github-streak-stats.svg capsule-header.svg dist/github-snake.svg
+          git commit -m "Update README assets (User-Wide Stats) [Automated]"
           git push
