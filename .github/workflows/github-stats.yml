@@ -1,0 +1,74 @@
+name: Fetch GitHub Stats and Store as JSON
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # Runs every day at midnight UTC
+  workflow_dispatch:  # Allows manual execution
+
+jobs:
+  fetch-github-stats:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📂 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🔐 Fetch GitHub Contribution Data
+        run: |
+          mkdir -p stats
+          echo "Fetching GitHub statistics for OskaraOskar..."
+          
+          PROFILE_DATA=$(curl -s -H "Authorization: token ${{ secrets.GH_STATS_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/users/OskaraOskar)
+
+          PRIVATE_REPOS=$(echo "$PROFILE_DATA" | jq '.total_private_repos')
+          PUBLIC_REPOS=$(echo "$PROFILE_DATA" | jq '.public_repos')
+          FOLLOWERS=$(echo "$PROFILE_DATA" | jq '.followers')
+
+          DAILY_ACTIVITY=$(curl -s -H "Authorization: token ${{ secrets.GH_STATS_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/OskaraOskar/OskaraOskar/stats/punch_card)
+
+          WEEKLY_ACTIVITY=$(curl -s -H "Authorization: token ${{ secrets.GH_STATS_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/OskaraOskar/OskaraOskar/stats/code_frequency)
+
+          YEARLY_ACTIVITY=$(curl -s -H "Authorization: token ${{ secrets.GH_STATS_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/OskaraOskar/OskaraOskar/stats/commit_activity)
+
+          LANGUAGES=$(curl -s -H "Authorization: token ${{ secrets.GH_STATS_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/users/OskaraOskar/repos?per_page=100 | jq 'map(.language) | unique | sort')
+
+          CODE_STATS=$(curl -s -H "Authorization: token ${{ secrets.GH_STATS_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/OskaraOskar/OskaraOskar/stats/participation)
+
+          # Construct JSON structure
+          echo "{
+            \"profile\": {
+              \"private_repos\": $PRIVATE_REPOS,
+              \"public_repos\": $PUBLIC_REPOS,
+              \"followers\": $FOLLOWERS
+            },
+            \"commit_activity\": {
+              \"daily\": $DAILY_ACTIVITY,
+              \"weekly\": $WEEKLY_ACTIVITY,
+              \"yearly\": $YEARLY_ACTIVITY
+            },
+            \"languages\": $LANGUAGES,
+            \"code_changes\": {
+              \"total_commits_per_week\": $(echo "$CODE_STATS" | jq '.all'),
+              \"owner_commits_per_week\": $(echo "$CODE_STATS" | jq '.owner')
+            }
+          }" > stats/github-stats.json
+
+      - name: 🛠️ Commit & Push Updated Stats
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions@github.com"
+          git add stats/github-stats.json
+          git commit -m "Auto-update GitHub stats JSON" || echo "No changes to commit"
+          git push || echo "No changes to push"
