@@ -18,8 +18,8 @@ jobs:
           GH_STATS_TOKEN: ${{ secrets.GH_STATS_TOKEN }}
         run: |
           curl -o github-stats.svg "https://github-readme-stats.vercel.app/api?username=OskaraOskar&show_icons=true&theme=tokyonight&hide=stars&include_all_commits=true&count_private=true&token=${GH_STATS_TOKEN}"
-          curl -o top-langs.svg "https://github-readme-stats.vercel.app/api/top-langs/?username=OskaraOskar&layout=compact&theme=tokyonight&langs_count=8&token=${GH_STATS_TOKEN}"
-          curl -o streak-stats.svg "https://streak-stats.demolab.com?user=OskaraOskar&theme=tokyonight"
+          curl -o top-langs.svg "https://github-readme-stats.vercel.app/api/top-langs/?username=OskaraOskar&layout=compact&theme=tokyonight&langs_count=8&count_private=true&token=${GH_STATS_TOKEN}"
+          curl -o streak-stats.svg "https://streak-stats.demolab.com?user=OskaraOskar&theme=tokyonight&count_private=true"
 
       - name: Commit and Push Changes
         run: |
