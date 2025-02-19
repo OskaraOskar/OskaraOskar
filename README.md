@@ -17,8 +17,8 @@
 
 ## ☕ About Me
 
-👋 Hi, I'm **Oskar Arnetz**, a **software builder and tinkerer and now a startup CTO** passionate about innovating better than bad solutions.  
-🔧 Currently working on a stealth-mode vertical SaaS product with smart AI integrations.  
+👋 Hi, I'm **Oskar Arnetz**, a **software builder and tinkerer** passionate about innovating better than bad solutions.  
+🔧 Currently building a vertical SaaS product with smart AI integrations.  
 📚 Built web apps and mobile apps for too many SaaS businesses and Retail stores.  
 💻 Built and secured applications across **MedTech & automotive industries**.
 
