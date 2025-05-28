@@ -124,10 +124,9 @@ jobs:
 
       - name: Fetch GitHub Readme Stats SVGs
         run: |
-          curl -L "https://github-readme-stats-qsc819fok-oskars-projects-79c54fff.vercel.app/api?username=OskaraOskar&show_icons=true&theme=radical&count_private=true&include_all_commits=true" -o dist/github-readme-stats.svg
-          curl -L "https://github-readme-stats-qsc819fok-oskars-projects-79c54fff.vercel.app/api/top-langs/?username=OskaraOskar&layout=compact&theme=radical&count_private=true" -o dist/github-top-langs.svg
+          curl -L "https://github-readme-stats-red-eight-40.vercel.app/api?username=OskaraOskar&show_icons=true&theme=radical&count_private=true&include_all_commits=true" -o dist/github-readme-stats.svg
+          curl -L "https://github-readme-stats-red-eight-40.vercel.app/api/top-langs/?username=OskaraOskar&layout=compact&theme=radical&count_private=true" -o dist/github-top-langs.svg
           curl -L "https://github-readme-streak-stats.herokuapp.com/?user=OskaraOskar&theme=radical&hide_border=true" -o dist/github-streak-stats.svg
-          curl -L "https://capsule-render.vercel.app/api?text=Welcome%20to%20My%20GitHub!&animation=fadeIn&type=waving&color=gradient&height=200" -o dist/capsule-header.svg
 
       - name: Upload External Stats
         uses: actions/upload-artifact@v4
