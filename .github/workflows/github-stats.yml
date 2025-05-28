@@ -1,99 +1,112 @@
-name: Generate User-Wide README Assets
+name: Generate README Assets
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Runs daily at midnight UTC
-  workflow_dispatch:  # Allows manual trigger
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+  push:
+    branches: ["master", "main"]
+
+permissions:
+  contents: write
 
 jobs:
-  generate-assets:
-    name: Generate User-Wide README Assets
+  # 1. Generate Snake SVG and publish to output branch
+  generate-snake:
+    name: Generate Snake
     runs-on: ubuntu-latest
-
+    timeout-minutes: 10
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Set Up Node.js
-        uses: actions/setup-node@v4
+      - name: Generate snake.svg
+        uses: Platane/snk/svg-only@v2
         with:
-          node-version: '18'
+          github_user_name: OskaraOskar
+          outputs: dist/github-contribution-grid-snake.svg
 
-      - name: Fetch User-Wide GitHub Statistics (Includes Private Repos)
-        env:
-          GH_TOKEN: ${{ secrets.GH_STATS_TOKEN }}
-        run: |
-          echo "Fetching user-wide statistics..."
-          
-          curl -H "Authorization: token $GH_TOKEN" \
-               -H "Accept: application/vnd.github+json" \
-               "https://api.github.com/users/${{ github.repository_owner }}" \
-               -o user-profile.json
-
-          curl -H "Authorization: token $GH_TOKEN" \
-               -H "Accept: application/vnd.github+json" \
-               "https://api.github.com/users/${{ github.repository_owner }}/repos?per_page=100" \
-               -o user-repos.json
-
-          curl -H "Authorization: token $GH_TOKEN" \
-               -H "Accept: application/vnd.github+json" \
-               "https://api.github.com/search/issues?q=author:${{ github.repository_owner }}&type=pr" \
-               -o user-pull-requests.json
-
-      - name: Generate GitHub Readme Stats (Entire User)
-        env:
-          GH_TOKEN: ${{ secrets.GH_STATS_TOKEN }}
-        run: |
-          echo "Generating overall GitHub Readme Stats..."
-          curl -H "Authorization: token $GH_TOKEN" \
-               "https://github-readme-stats.vercel.app/api?username=${{ github.repository_owner }}&show_icons=true&theme=radical&count_private=true&include_all_commits=true" \
-               -o github-readme-stats.svg
-
-          curl -H "Authorization: token $GH_TOKEN" \
-               "https://github-readme-stats.vercel.app/api/top-langs/?username=${{ github.repository_owner }}&layout=compact&count_private=true" \
-               -o github-top-langs.svg
-
-          curl -H "Authorization: token $GH_TOKEN" \
-               "https://github-readme-streak-stats.herokuapp.com/?user=${{ github.repository_owner }}&theme=radical&hide_border=true" \
-               -o github-streak-stats.svg
-
-      - name: Generate Contribution Snake Graph (User-Wide)
-        run: |
-          echo "Generating contribution snake graph..."
-          mkdir -p dist  # Ensure the directory exists
-          curl -L "https://github.com/${{ github.repository_owner }}/${{ github.repository }}/blob/output/github-contribution-grid-snake.svg?raw=true" -o dist/github-snake.svg
-          if [ -f "dist/github-snake.svg" ]; then
-            echo "Snake graph generated successfully!"
-          else
-            echo "⚠️ Warning: Snake graph was not generated."
-          fi
-
-      - name: Upload Snake Contribution Graph
-        uses: actions/upload-artifact@v4
+      - name: Push snake.svg to the output branch
+        uses: crazy-max/ghaction-github-pages@v2.6.0
         with:
-          name: github-snake
-          path: dist/github-snake.svg
-
-      - name: Generate Capsule-Render Header Image
-        run: |
-          echo "Generating Capsule Header..."
-          curl "https://capsule-render.vercel.app/api?text=Welcome%20to%20My%20GitHub!&animation=fadeIn&type=waving&color=gradient&height=200" \
-               -o capsule-header.svg
-
-      - name: Commit and Push Generated Assets
+          target_branch: output
+          build_dir: dist
         env:
-          GH_TOKEN: ${{ secrets.GH_STATS_TOKEN }}
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-          git add user-profile.json user-repos.json user-pull-requests.json github-readme-stats.svg github-top-langs.svg github-streak-stats.svg capsule-header.svg
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-          # Check if the Snake Graph exists before adding it
-          if [ -f "dist/github-snake.svg" ]; then
-            git add dist/github-snake.svg
-          else
-            echo "⚠️ Skipping snake graph commit as the file is missing."
-          fi
-          
-          git commit -m "Update README assets (User-Wide Stats) [Automated]" || echo "No changes to commit."
-          git push || echo "No changes to push."
+  # 2. Generate GitHub Metrics using lowlighter/metrics
+  generate-metrics:
+    name: Generate GitHub Metrics
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Core, Base & Profile Plugins
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          user: OskaraOskar
+          template: classic
+          base: header, activity, community, repositories, metadata
+          config_timezone: Europe/Stockholm
+
+          # Introduction plugin
+          plugin_introduction: yes
+          plugin_introduction_title: yes
+
+          # Activity plugin
+          plugin_activity: yes
+          plugin_activity_limit: 5
+          plugin_activity_days: 14
+          plugin_activity_visibility: all
+          plugin_activity_timestamps: yes
+
+          # Calendar plugin
+          plugin_calendar: yes
+          plugin_calendar_limit: 1
+
+          # Isocalendar plugin
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: half-year
+
+          # Skyline plugin
+          plugin_skyline: yes
+          plugin_skyline_year: current-year
+          plugin_skyline_frames: 60
+          plugin_skyline_quality: 0.5
+          plugin_skyline_compatibility: yes
+
+          # Achievements plugin
+          plugin_achievements: yes
+          plugin_achievements_threshold: A
+          plugin_achievements_secrets: yes
+          plugin_achievements_display: detailed
+          plugin_achievements_limit: 0
+
+      - name: Repository Template Plugin
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          user: OskaraOskar
+          template: repository
+          filename: metrics.repository.svg
+          query: |
+            {
+              "repository": "OskaraOskar"
+            }
+
+      - name: Terminal Template Plugin
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          user: OskaraOskar
+          template: terminal
+          filename: metrics.terminal.svg
+
+      - name: Push metrics to the output branch
+        uses: crazy-max/ghaction-github-pages@v2.6.0
+        with:
+          target_branch: output
+          build_dir: .
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
