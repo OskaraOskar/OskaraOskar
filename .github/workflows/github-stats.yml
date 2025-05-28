@@ -2,46 +2,49 @@ name: Generate README Assets
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 0 * * *" # Daily at midnight UTC
   workflow_dispatch:
   push:
     branches: ["master", "main"]
 
 permissions:
-  contents: write
+  contents: write # Needed to commit generated files
 
 jobs:
-  # 1. Generate Snake SVG and publish to output branch
   generate-snake:
-    name: Generate Snake
+    name: Generate Snake Contribution Graph
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Generate snake.svg
-        uses: Platane/snk/svg-only@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Generate Snake SVG
+        uses: Platane/snk@v3
         with:
           github_user_name: OskaraOskar
-          outputs: dist/github-contribution-grid-snake.svg
+          outputs: |
+            dist/github-contribution-grid-snake.svg
 
-      - name: Push snake.svg to the output branch
-        uses: crazy-max/ghaction-github-pages@v2.6.0
+      - name: Deploy Snake SVG to Output Branch
+        uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
           build_dir: dist
+          commit_message: "Deploy snake contribution graph"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  # 2. Generate GitHub Metrics using lowlighter/metrics
   generate-metrics:
     name: Generate GitHub Metrics
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - name: Core, Base & Profile Plugins
+      - name: Generate Classic Metrics
         uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -50,40 +53,29 @@ jobs:
           base: header, activity, community, repositories, metadata
           config_timezone: Europe/Stockholm
 
-          # Introduction plugin
           plugin_introduction: yes
           plugin_introduction_title: yes
 
-          # Activity plugin
           plugin_activity: yes
           plugin_activity_limit: 5
           plugin_activity_days: 14
           plugin_activity_visibility: all
           plugin_activity_timestamps: yes
 
-          # Calendar plugin
           plugin_calendar: yes
           plugin_calendar_limit: 1
 
-          # Isocalendar plugin
           plugin_isocalendar: yes
           plugin_isocalendar_duration: half-year
 
-          # Skyline plugin
+          # Adjusted skyline plugin to avoid rendering errors
           plugin_skyline: yes
           plugin_skyline_year: current-year
-          plugin_skyline_frames: 60
-          plugin_skyline_quality: 0.5
+          plugin_skyline_frames: 24
+          plugin_skyline_quality: 0.3
           plugin_skyline_compatibility: yes
 
-          # Achievements plugin
-          plugin_achievements: yes
-          plugin_achievements_threshold: A
-          plugin_achievements_secrets: yes
-          plugin_achievements_display: detailed
-          plugin_achievements_limit: 0
-
-      - name: Repository Template Plugin
+      - name: Generate Repository Metrics
         uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -95,7 +87,7 @@ jobs:
               "repository": "OskaraOskar"
             }
 
-      - name: Terminal Template Plugin
+      - name: Generate Terminal Metrics
         uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -103,10 +95,11 @@ jobs:
           template: terminal
           filename: metrics.terminal.svg
 
-      - name: Push metrics to the output branch
-        uses: crazy-max/ghaction-github-pages@v2.6.0
+      - name: Deploy Metrics to Output Branch
+        uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
           build_dir: .
+          commit_message: "Update GitHub metrics"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
