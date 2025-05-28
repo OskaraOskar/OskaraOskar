@@ -35,23 +35,19 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
+      - name: Create output directory
+        run: mkdir -p dist
+
       - name: Generate Calendar Metrics
         uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.GH_STATS_TOKEN }}
           user: OskaraOskar
-          filename: metrics.calendar.svg
+          filename: dist/metrics.calendar.svg
           template: classic
           base: ""
           plugin_calendar: yes
           plugin_calendar_limit: 1
-          output_action: none
-
-      - name: Create output directory
-        run: mkdir -p dist
-
-      - name: Move generated file
-        run: mv metrics.calendar.svg dist/
 
       - uses: actions/upload-artifact@v4
         with:
@@ -62,23 +58,19 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
+      - name: Create output directory
+        run: mkdir -p dist
+
       - name: Generate Isometric Calendar Metrics
         uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.GH_STATS_TOKEN }}
           user: OskaraOskar
-          filename: metrics.isocalendar.svg
+          filename: dist/metrics.isocalendar.svg
           template: classic
           base: ""
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
-          output_action: none
-
-      - name: Create output directory
-        run: mkdir -p dist
-
-      - name: Move generated file
-        run: mv metrics.isocalendar.svg dist/
 
       - uses: actions/upload-artifact@v4
         with:
@@ -90,25 +82,21 @@ jobs:
     timeout-minutes: 60
     continue-on-error: true # Skyline is fancy but flaky
     steps:
+      - name: Create output directory
+        run: mkdir -p dist
+
       - name: Generate Skyline Metrics
         uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.GH_STATS_TOKEN }}
           user: OskaraOskar
-          filename: metrics.skyline.svg
+          filename: dist/metrics.skyline.svg
           template: classic
           base: ""
           plugin_skyline: yes
           plugin_skyline_frames: 120
           plugin_skyline_quality: 0.3
           plugin_skyline_compatibility: yes
-          output_action: none
-
-      - name: Create output directory
-        run: mkdir -p dist
-
-      - name: Move generated file
-        run: mv metrics.skyline.svg dist/
 
       - uses: actions/upload-artifact@v4
         with:
@@ -119,21 +107,17 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
+      - name: Create output directory
+        run: mkdir -p dist
+
       - name: Generate User Metrics
         uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.GH_STATS_TOKEN }}
           user: OskaraOskar
-          filename: metrics.user.svg
+          filename: dist/metrics.user.svg
           template: classic
           base: header, activity, repositories, metadata
-          output_action: none
-
-      - name: Create output directory
-        run: mkdir -p dist
-
-      - name: Move generated file
-        run: mv metrics.user.svg dist/
 
       - uses: actions/upload-artifact@v4
         with:
