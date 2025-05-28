@@ -46,7 +46,7 @@ Vertical SaaS with AI power
 </p>
 
 <p align="center">
-  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/metrics.repository.svg" alt="Repository Metrics" />
+  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/metrics.user.svg" alt="User Metrics" />
   <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/github-contribution-grid-snake.svg" alt="Contribution Snake" />
 </p>
 

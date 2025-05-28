@@ -123,19 +123,22 @@ jobs:
         uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.GH_STATS_TOKEN }}
-          filename: metrics.repository.svg
+          user: OskaraOskar
+          filename: metrics.user.svg
+          template: classic
+          base: header, activity, repositories, metadata
           output_action: none
 
       - name: Create output directory
         run: mkdir -p dist
 
       - name: Move generated file
-        run: mv metrics.repository.svg dist/
+        run: mv metrics.user.svg dist/
 
       - uses: actions/upload-artifact@v4
         with:
-          name: metrics-repository
-          path: dist/metrics.repository.svg
+          name: metrics-user
+          path: dist/metrics.user.svg
 
   external-stats:
     runs-on: ubuntu-latest
