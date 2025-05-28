@@ -12,9 +12,11 @@ Building the future of **Vertical SaaS** with smart AI integrations.
 
 ### 🏆 Key Achievements
 
-- **2 pre-seed stealth startup projects** (totalled **€300,000** in total funding) in fashion & fintech
-- Developed a **global KPI analytics tool** deployed across **US, Europe, and Asia (including China)** in just 6 weeks
+- **2 pre-seed stealth startup projects** (totalled **€300,000** in total funding) in fashion & fintech  
+- Developed a **global KPI analytics tool** deployed across **US, Europe, and Asia (including China)** in just 6 weeks  
 - Built and secured applications across **MedTech & automotive industries**
+
+---
 
 ## Tech Stack & Expertise
 
@@ -30,32 +32,49 @@ Building the future of **Vertical SaaS** with smart AI integrations.
   <img src="https://img.shields.io/badge/CodeBuff-FF6B35?style=for-the-badge&logo=buffer&logoColor=white" alt="CodeBuff" />
 </p>
 
-## 📊 GitHub Metrics
+---
 
-### Detailed Profile Metrics
+## GitHub Metrics
+
+### Summary
 <p align="center">
-  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/main/github-metrics.svg" alt="Detailed Metrics" />
+  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/metrics.introduction.svg" alt="Introduction Metrics" />
 </p>
 
-### Contribution Calendar
+### Recent Activity
 <p align="center">
-  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/main/metrics.terminal.svg" alt="Terminal Metrics" />
+  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/metrics.activity.svg" alt="Activity Metrics" />
 </p>
 
-### Repository Insights
+
+### Contribution Calendar (unless the first time didn't do it)
 <p align="center">
-  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/main/metrics.repository.svg" alt="Repository Metrics" />
+  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/metrics.calendar.svg" alt="Contribution Calendar" />
+  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/metrics.isocalendar.svg" alt="Isometric Calendar" />
+  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/metrics.skyline.svg" alt="Skyline Chart" />
 </p>
 
-## GitHub Stats & Activity
+### Insights
+<p align="center">
+  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/metrics.repository.svg" alt="Repository Metrics" />
+</p>
 
-### GitHub Stats Overview
+### Overview
+<p align="center">
+  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/metrics.terminal.svg" alt="Terminal Metrics" />
+</p>
+
+---
+
+## 📈 GitHub Stats & Activity
+
+### Stats Overview
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=OskaraOskar&show_icons=true&theme=radical&count_private=true&include_all_commits=true" alt="GitHub Stats" />
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=OskaraOskar&layout=compact&theme=radical&count_private=true" alt="Top Languages" />
 </p>
 
-### Contribution Streak & Activity
+### Summary
 <p align="center">
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=OskaraOskar&theme=radical&hide_border=true" alt="GitHub Streak Stats"/>
 </p>
@@ -64,35 +83,39 @@ Building the future of **Vertical SaaS** with smart AI integrations.
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=OskaraOskar&theme=radical" alt="GitHub Profile Summary"/>
 </p>
 
-### GitHub Trophies 
+
+
+### Activity
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=OskaraOskar&theme=radical&no-frame=true&no-bg=false&margin-w=4&rank=SECRET,SSS,SS,S,AAA,AA,A" alt="GitHub Trophies" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=OskaraOskar&theme=tokyo-night&bg_color=00000000" alt="Contribution Graph" />
 </p>
 
-### Activity Graph
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=OskaraOskar&theme=tokyo-night&bg_color=00000000" />
-</p>
-
-### Contribution Snake
 <p align="center">
   <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/github-contribution-grid-snake.svg" alt="Snake animation" />
 </p>
 
-## Current Focus 🎯
+### GitHub Trophies
+<p align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=OskaraOskar&theme=radical&no-frame=true&no-bg=false&margin-w=4&rank=SECRET,SSS,SS,S,AAA,AA,A" alt="GitHub Trophies" />
+</p>
 
-- 🔧 Building a vertical SaaS product with smart AI integrations
-- 📱 Developing cross-platform mobile applications
-- 🤖 Exploring AI/ML integration in applications
+---
 
+## Current Focus 🎯 
 
-## Activity
+- 🔧 Building a vertical SaaS product with smart AI integrations  
+- 📱 Developing cross-platform mobile applications  
+- 🤖 Exploring AI/ML integration in applications  
+
+---
+
+## Coding Activity
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api/wakatime?username=OskaraOskar&theme=radical" alt="Wakatime Stats" />
 </p>
 
-
+---
 
 ## Connect With Me
 
@@ -105,7 +128,7 @@ Building the future of **Vertical SaaS** with smart AI integrations.
   </a>
 </p>
 
-## 🎲 Fun Stuff
+---
 
 <p align="center">
   <img src="https://readme-jokes.vercel.app/api?theme=radical" alt="Jokes Card" />
