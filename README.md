@@ -1,5 +1,3 @@
-# Oskar Arnetz | Builder, tinkerer, coffee drinker
-
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&height=250&text=Oskar%20Arnetz&fontSize=75&color=gradient&animation=fadeIn" alt="Welcome Banner" />
 </p>
@@ -18,7 +16,7 @@ Building the future of **Vertical SaaS** with smart AI integrations.
 - Developed a **global KPI analytics tool** deployed across **US, Europe, and Asia (including China)** in just 6 weeks
 - Built and secured applications across **MedTech & automotive industries**
 
-## 🛠 Tech Stack & Expertise
+## Tech Stack & Expertise
 
 ### Core Technologies
 <p align="center">
@@ -32,7 +30,7 @@ Building the future of **Vertical SaaS** with smart AI integrations.
   <img src="https://img.shields.io/badge/CodeBuff-FF6B35?style=for-the-badge&logo=buffer&logoColor=white" alt="CodeBuff" />
 </p>
 
-## 📊  GitHub Metrics
+## 📊 GitHub Metrics
 
 ### Detailed Profile Metrics
 <p align="center">
@@ -49,7 +47,7 @@ Building the future of **Vertical SaaS** with smart AI integrations.
   <img src="https://github.com/OskaraOskar/OskaraOskar/blob/main/metrics.repository.svg" alt="Repository Metrics" />
 </p>
 
-## 📈 GitHub Stats & Activity
+## GitHub Stats & Activity
 
 ### GitHub Stats Overview
 <p align="center">
@@ -81,31 +79,22 @@ Building the future of **Vertical SaaS** with smart AI integrations.
   <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/github-contribution-grid-snake.svg" alt="Snake animation" />
 </p>
 
-## 🎯 Current Focus
+## Current Focus 🎯
 
 - 🔧 Building a vertical SaaS product with smart AI integrations
 - 📱 Developing cross-platform mobile applications
 - 🤖 Exploring AI/ML integration in applications
 
-## 📈 Coding Activity
+
+## Activity
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api/wakatime?username=OskaraOskar&theme=radical" alt="Wakatime Stats" />
 </p>
 
-## 🎲 Fun Stuff
 
-### Random Dev Joke
-<p align="center">
-  <img src="https://readme-jokes.vercel.app/api?theme=radical" alt="Jokes Card" />
-</p>
 
-### Random Programming Quote
-<p align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Random Dev Quote"/>
-</p>
-
-## 📬 Connect With Me
+## Connect With Me
 
 <p align="center">
   <a href="https://www.linkedin.com/in/oskar-arnetz/" target="_blank">
@@ -114,6 +103,16 @@ Building the future of **Vertical SaaS** with smart AI integrations.
   <a href="https://github.com/OskaraOskar" target="_blank">
     <img src="https://img.shields.io/badge/GitHub-OskaraOskar-black?style=for-the-badge&logo=github" alt="GitHub Badge" style="border-radius:10px; box-shadow: 0 0 10px #000000;">
   </a>
+</p>
+
+## 🎲 Fun Stuff
+
+<p align="center">
+  <img src="https://readme-jokes.vercel.app/api?theme=radical" alt="Jokes Card" />
+</p>
+
+<p align="center">
+  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Random Dev Quote"/>
 </p>
 
 ---
