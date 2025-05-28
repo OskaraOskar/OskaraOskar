@@ -47,23 +47,11 @@ jobs:
           plugin_calendar_limit: 1
           output_action: none
 
-      - name: Debug - List files in current directory
-        run: ls -la
-
       - name: Create output directory
         run: mkdir -p dist
 
-      - name: Move generated file (with fallback search)
-        run: |
-          if [ -f "metrics.calendar.svg" ]; then
-            mv metrics.calendar.svg dist/
-          elif [ -f "./metrics.calendar.svg" ]; then
-            mv ./metrics.calendar.svg dist/
-          else
-            echo "File not found in expected locations, searching..."
-            find . -name "metrics.calendar.svg" -type f
-            find . -name "*.svg" -type f | head -10
-          fi
+      - name: Move generated file from metrics_renders
+        run: mv /metrics_renders/metrics.calendar.svg dist/
 
       - uses: actions/upload-artifact@v4
         with:
@@ -86,23 +74,11 @@ jobs:
           plugin_isocalendar_duration: full-year
           output_action: none
 
-      - name: Debug - List files in current directory
-        run: ls -la
-
       - name: Create output directory
         run: mkdir -p dist
 
-      - name: Move generated file (with fallback search)
-        run: |
-          if [ -f "metrics.isocalendar.svg" ]; then
-            mv metrics.isocalendar.svg dist/
-          elif [ -f "./metrics.isocalendar.svg" ]; then
-            mv ./metrics.isocalendar.svg dist/
-          else
-            echo "File not found in expected locations, searching..."
-            find . -name "metrics.isocalendar.svg" -type f
-            find . -name "*.svg" -type f | head -10
-          fi
+      - name: Move generated file from metrics_renders
+        run: mv /metrics_renders/metrics.isocalendar.svg dist/
 
       - uses: actions/upload-artifact@v4
         with:
@@ -128,23 +104,11 @@ jobs:
           plugin_skyline_compatibility: yes
           output_action: none
 
-      - name: Debug - List files in current directory
-        run: ls -la
-
       - name: Create output directory
         run: mkdir -p dist
 
-      - name: Move generated file (with fallback search)
-        run: |
-          if [ -f "metrics.skyline.svg" ]; then
-            mv metrics.skyline.svg dist/
-          elif [ -f "./metrics.skyline.svg" ]; then
-            mv ./metrics.skyline.svg dist/
-          else
-            echo "File not found in expected locations, searching..."
-            find . -name "metrics.skyline.svg" -type f
-            find . -name "*.svg" -type f | head -10
-          fi
+      - name: Move generated file from metrics_renders
+        run: mv /metrics_renders/metrics.skyline.svg dist/
 
       - uses: actions/upload-artifact@v4
         with:
@@ -165,23 +129,11 @@ jobs:
           base: header, activity, repositories, metadata
           output_action: none
 
-      - name: Debug - List files in current directory
-        run: ls -la
-
       - name: Create output directory
         run: mkdir -p dist
 
-      - name: Move generated file (with fallback search)
-        run: |
-          if [ -f "metrics.user.svg" ]; then
-            mv metrics.user.svg dist/
-          elif [ -f "./metrics.user.svg" ]; then
-            mv ./metrics.user.svg dist/
-          else
-            echo "File not found in expected locations, searching..."
-            find . -name "metrics.user.svg" -type f
-            find . -name "*.svg" -type f | head -10
-          fi
+      - name: Move generated file from metrics_renders
+        run: mv /metrics_renders/metrics.user.svg dist/
 
       - uses: actions/upload-artifact@v4
         with:
