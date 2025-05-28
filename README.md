@@ -6,139 +6,72 @@
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=F75C7E&center=true&vCenter=true&width=435&lines=Builder,+tinkerer,+coffee+drinker;Full-Stack+Developer;AI+%26+SaaS+Builder;Co-founder+%26+CTO;Always+learning+new+things" alt="Typing SVG" />
 </p>
 
-## I Build Now
-
-Building the future of **Vertical SaaS** with smart AI integrations.
-
-### 🏆 Key Achievements
-
-- **2 pre-seed stealth startup projects** (totalled **€300,000** in total funding) in fashion & fintech  
-- Developed a **global KPI analytics tool** deployed across **US, Europe, and Asia (including China)** in just 6 weeks  
-- Built and secured applications across **MedTech & automotive industries**
+<p align="center">
+  <a href="https://www.linkedin.com/in/oskar-arnetz/" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-Oskar-blue?style=for-the-badge&logo=linkedin" alt="LinkedIn Badge" />
+  </a>
+  <a href="https://github.com/OskaraOskar" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-OskaraOskar-black?style=for-the-badge&logo=github" alt="GitHub Badge" />
+  </a>
+</p>
 
 ---
 
-## Tech Stack & Expertise
+## Building right now
 
-### Core Technologies
+Vertical SaaS with AI power
+
+### Key Career Highlights...so far
+
+- Raised over **€300K** across **2 stealth startup projects** (fashion & fintech)
+- Delivered global KPI dashboards in **6 weeks**, deployed across **3 continents**
+- Developed secure systems for **MedTech** and **automotive** industries
+
+## Stats
+
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=typescript,flutter,dart,python,javascript,react,cs,solidity,firebase&theme=dark" alt="Tech Stack" />
+  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/github-readme-stats.svg" alt="GitHub Readme Stats" />
+  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/github-top-langs.svg" alt="Top Languages" />
 </p>
 
-### Development Tools
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=git,github,vscode,figma&theme=dark" alt="Development Tools" />
+  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/github-streak-stats.svg" alt="GitHub Streak Stats"/>
+  <img src="https://github-readme-stats.vercel.app/api/wakatime?username=OskaraOskar&theme=radical" alt="Wakatime Stats" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/metrics.calendar.svg" alt="Contribution Calendar" />
+  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/metrics.isocalendar.svg" alt="Isometric Contribution" />
+  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/metrics.skyline.svg" alt="Skyline Overview" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/metrics.repository.svg" alt="Repository Metrics" />
+  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/github-contribution-grid-snake.svg" alt="Contribution Snake" />
+</p>
+
+---
+
+## Technical Stack
+
+While tools do evolve, here are the current tools I will use, depending on the context.
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=typescript,flutter,dart,python,javascript,react,cs,solidity,firebase&theme=dark" alt="Languages & Frameworks" />
+</p>
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=git,github,vscode,figma&theme=dark" alt="Dev Tools" />
   <img src="https://img.shields.io/badge/Cursor-000000?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Cursor" />
   <img src="https://img.shields.io/badge/CodeBuff-FF6B35?style=for-the-badge&logo=buffer&logoColor=white" alt="CodeBuff" />
 </p>
 
 ---
 
-## GitHub Metrics
-
-### Summary
-<p align="center">
-  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/metrics.introduction.svg" alt="Introduction Metrics" />
-</p>
-
-### Recent Activity
-<p align="center">
-  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/metrics.activity.svg" alt="Activity Metrics" />
-</p>
-
-
-### Contribution Calendar (unless the first time didn't do it)
-<p align="center">
-  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/metrics.calendar.svg" alt="Contribution Calendar" />
-  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/metrics.isocalendar.svg" alt="Isometric Calendar" />
-  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/metrics.skyline.svg" alt="Skyline Chart" />
-</p>
-
-### Insights
-<p align="center">
-  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/metrics.repository.svg" alt="Repository Metrics" />
-</p>
-
-### Overview
-<p align="center">
-  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/metrics.terminal.svg" alt="Terminal Metrics" />
-</p>
-
----
-
-## 📈 GitHub Stats & Activity
-
-### Stats Overview
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=OskaraOskar&show_icons=true&theme=radical&count_private=true&include_all_commits=true" alt="GitHub Stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=OskaraOskar&layout=compact&theme=radical&count_private=true" alt="Top Languages" />
-</p>
-
-### Summary
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=OskaraOskar&theme=radical&hide_border=true" alt="GitHub Streak Stats"/>
-</p>
-
-<p align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=OskaraOskar&theme=radical" alt="GitHub Profile Summary"/>
-</p>
-
-
-
-### Activity
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=OskaraOskar&theme=tokyo-night&bg_color=00000000" alt="Contribution Graph" />
-</p>
-
-<p align="center">
-  <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/github-contribution-grid-snake.svg" alt="Snake animation" />
-</p>
-
-### GitHub Trophies
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=OskaraOskar&theme=radical&no-frame=true&no-bg=false&margin-w=4&rank=SECRET,SSS,SS,S,AAA,AA,A" alt="GitHub Trophies" />
-</p>
-
----
-
-## Current Focus 🎯 
-
-- 🔧 Building a vertical SaaS product with smart AI integrations  
-- 📱 Developing cross-platform mobile applications  
-- 🤖 Exploring AI/ML integration in applications  
-
----
-
-## Coding Activity
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/wakatime?username=OskaraOskar&theme=radical" alt="Wakatime Stats" />
-</p>
-
----
-
-## Connect With Me
-
-<p align="center">
-  <a href="https://www.linkedin.com/in/oskar-arnetz/" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-Oskar-blue?style=for-the-badge&logo=linkedin" alt="LinkedIn Badge" style="border-radius:10px; box-shadow: 0 0 10px #00A4FF;">
-  </a>
-  <a href="https://github.com/OskaraOskar" target="_blank">
-    <img src="https://img.shields.io/badge/GitHub-OskaraOskar-black?style=for-the-badge&logo=github" alt="GitHub Badge" style="border-radius:10px; box-shadow: 0 0 10px #000000;">
-  </a>
-</p>
-
----
-
 <p align="center">
   <img src="https://readme-jokes.vercel.app/api?theme=radical" alt="Jokes Card" />
+  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Quote Card" />
 </p>
-
-<p align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Random Dev Quote"/>
-</p>
-
----
 
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=OskaraOskar&style=flat-square&color=blue" alt="Profile Views"/>
