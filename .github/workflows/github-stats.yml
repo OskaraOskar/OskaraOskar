@@ -35,6 +35,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
       - name: Generate Calendar Metrics
         uses: lowlighter/metrics@latest
         with:
@@ -45,13 +48,21 @@ jobs:
           base: ""
           plugin_calendar: yes
           plugin_calendar_limit: 1
-          output_action: none
+          output_action: commit
+          committer_branch: output
+          committer_message: "Update calendar metrics"
 
-      - name: Create output directory
-        run: mkdir -p dist
-
-      - name: Move generated file from metrics_renders
-        run: mv /metrics_renders/metrics.calendar.svg dist/
+      - name: Download generated file for artifacts
+        run: |
+          mkdir -p dist
+          # The file is committed to the output branch, but we also want it for artifacts
+          # We'll download it from the branch that was just updated
+          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+               -H "Accept: application/vnd.github.v3.raw" \
+               -o dist/metrics.calendar.svg \
+               "https://api.github.com/repos/OskaraOskar/OskaraOskar/contents/metrics.calendar.svg?ref=output" || \
+          # Fallback: if the file doesn't exist yet, create a placeholder
+          cp dist/metrics.calendar.svg dist/metrics.calendar.svg 2>/dev/null || echo "<!-- Calendar metrics placeholder -->" > dist/metrics.calendar.svg
 
       - uses: actions/upload-artifact@v4
         with:
@@ -62,6 +73,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
       - name: Generate Isometric Calendar Metrics
         uses: lowlighter/metrics@latest
         with:
@@ -72,13 +86,18 @@ jobs:
           base: ""
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
-          output_action: none
+          output_action: commit
+          committer_branch: output
+          committer_message: "Update isocalendar metrics"
 
-      - name: Create output directory
-        run: mkdir -p dist
-
-      - name: Move generated file from metrics_renders
-        run: mv /metrics_renders/metrics.isocalendar.svg dist/
+      - name: Download generated file for artifacts
+        run: |
+          mkdir -p dist
+          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+               -H "Accept: application/vnd.github.v3.raw" \
+               -o dist/metrics.isocalendar.svg \
+               "https://api.github.com/repos/OskaraOskar/OskaraOskar/contents/metrics.isocalendar.svg?ref=output" || \
+          echo "<!-- Isocalendar metrics placeholder -->" > dist/metrics.isocalendar.svg
 
       - uses: actions/upload-artifact@v4
         with:
@@ -90,6 +109,9 @@ jobs:
     timeout-minutes: 60
     continue-on-error: true
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
       - name: Generate Skyline Metrics
         uses: lowlighter/metrics@latest
         with:
@@ -102,13 +124,18 @@ jobs:
           plugin_skyline_frames: 120
           plugin_skyline_quality: 0.3
           plugin_skyline_compatibility: yes
-          output_action: none
+          output_action: commit
+          committer_branch: output
+          committer_message: "Update skyline metrics"
 
-      - name: Create output directory
-        run: mkdir -p dist
-
-      - name: Move generated file from metrics_renders
-        run: mv /metrics_renders/metrics.skyline.svg dist/
+      - name: Download generated file for artifacts
+        run: |
+          mkdir -p dist
+          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+               -H "Accept: application/vnd.github.v3.raw" \
+               -o dist/metrics.skyline.svg \
+               "https://api.github.com/repos/OskaraOskar/OskaraOskar/contents/metrics.skyline.svg?ref=output" || \
+          echo "<!-- Skyline metrics placeholder -->" > dist/metrics.skyline.svg
 
       - uses: actions/upload-artifact@v4
         with:
@@ -119,6 +146,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
       - name: Generate User Metrics
         uses: lowlighter/metrics@latest
         with:
@@ -127,13 +157,18 @@ jobs:
           filename: metrics.user.svg
           template: classic
           base: header, activity, repositories, metadata
-          output_action: none
+          output_action: commit
+          committer_branch: output
+          committer_message: "Update user metrics"
 
-      - name: Create output directory
-        run: mkdir -p dist
-
-      - name: Move generated file from metrics_renders
-        run: mv /metrics_renders/metrics.user.svg dist/
+      - name: Download generated file for artifacts
+        run: |
+          mkdir -p dist
+          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+               -H "Accept: application/vnd.github.v3.raw" \
+               -o dist/metrics.user.svg \
+               "https://api.github.com/repos/OskaraOskar/OskaraOskar/contents/metrics.user.svg?ref=output" || \
+          echo "<!-- User metrics placeholder -->" > dist/metrics.user.svg
 
       - uses: actions/upload-artifact@v4
         with:
