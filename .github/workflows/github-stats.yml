@@ -208,7 +208,7 @@ jobs:
     needs:
       - generate-snake
       - metrics-calendar
-      - metrics-isocalendar
+      - metrics-habits
       - metrics-skyline
       - metrics-user
       - external-stats
