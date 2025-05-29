@@ -82,7 +82,6 @@ jobs:
           token: ${{ secrets.GH_STATS_TOKEN }}
           user: OskaraOskar
           filename: metrics.isocalendar.svg
-          template: classic
           base: ""
           plugin_habits: yes
           plugin_habits_facts: yes
@@ -125,7 +124,7 @@ jobs:
           base: ""
           plugin_skyline: yes
           plugin_skyline_frames: 120
-          plugin_skyline_quality: 0.3
+          plugin_skyline_quality: 0.5
           plugin_skyline_settings: |
             {
               "url": "https://honzaap.github.io/GithubCity/?name=OskaraOskar&year=2025",
