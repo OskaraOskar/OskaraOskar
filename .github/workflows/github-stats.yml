@@ -69,7 +69,7 @@ jobs:
           name: metrics-calendar
           path: dist/metrics.calendar.svg
 
-  metrics-isocalendar:
+  metrics-habits:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
@@ -84,8 +84,11 @@ jobs:
           filename: metrics.isocalendar.svg
           template: classic
           base: ""
-          plugin_isocalendar: yes
-          plugin_isocalendar_duration: half-year
+          plugin_habits: yes
+          plugin_habits_facts: yes
+          plugin_habits_charts: yes
+          plugin_habits_charts_type: graph
+          config_timezone: Europe/Stockholm
           output_action: commit
           committer_branch: output
           committer_message: "Update isocalendar metrics"
