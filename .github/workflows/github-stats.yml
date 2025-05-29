@@ -85,7 +85,7 @@ jobs:
           template: classic
           base: ""
           plugin_isocalendar: yes
-          plugin_isocalendar_duration: full-year
+          plugin_isocalendar_duration: half-year
           output_action: commit
           committer_branch: output
           committer_message: "Update isocalendar metrics"
@@ -123,7 +123,13 @@ jobs:
           plugin_skyline: yes
           plugin_skyline_frames: 120
           plugin_skyline_quality: 0.3
-          plugin_skyline_compatibility: yes
+          plugin_skyline_settings: |
+            {
+              "url": "https://honzaap.github.io/GithubCity/?name=OskaraOskar&year=2025",
+              "ready": "[...document.querySelectorAll('.display-info span')].map(span => span.innerText).includes('OskaraOskar')",
+              "wait": 4,
+              "hide": ".github-corner, .footer-link, .buttons-options, .mobile-rotate, .display-info span:first-child"
+            }          
           output_action: commit
           committer_branch: output
           committer_message: "Update skyline metrics"
