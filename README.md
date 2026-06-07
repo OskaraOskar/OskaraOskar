@@ -3,14 +3,14 @@
 <div align="center" style="max-width:100%;padding:1rem;">
   <img
     src="https://capsule-render.vercel.app/api?type=venom&height=250&text=Oskar%20Arnetz&fontSize=75&color=gradient&animation=fadeIn"
-    alt="Oskar Arnetz — Software Engineer / AI Engineer"
+    alt="Oskar Arnetz — Applied AI / Product Engineering"
     style="width:100%;max-width:1200px;height:auto;"
   />
 </div>
 
 <div align="center" style="margin-top:-30px;">
   <img
-    src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1100&color=F75C7E&center=true&vCenter=true&width=820&lines=Software+Engineer+%7C+AI+Engineer;AI+agents+%26+applied+automation;Shipping+end-to-end+products;5+products+shipped+%C2%B7+%E2%82%AC300K+raised;Always+learning%2C+always+building"
+    src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1100&color=F75C7E&center=true&vCenter=true&width=920&lines=Applied+AI+%7C+Product+Engineering;Messy+workflows+%E2%86%92+shipped+software;AI+agents+%C2%B7+integrations+%C2%B7+cloud+%C2%B7+APIs;5+production+products+shipped+%C2%B7+%E2%82%AC300K+raised;Less+theatre+%C2%B7+more+useful+systems"
     alt="Typing intro for Oskar Arnetz"
     style="max-width:100%;height:auto;"
   />
@@ -26,7 +26,22 @@
 </div>
 
 <p align="center">
-  Say "Hi" on LinkedIn —> a short <strong>hello</strong> + why you’re reaching out makes me reply.
+  Say <strong>hi</strong> on LinkedIn — short message, real context, no pitch deck required.
+</p>
+
+<hr/>
+
+<h2 align="center">What I Do</h2>
+
+<p align="center" style="max-width:900px;margin:auto;line-height:1.8;">
+  I build software for messy real-world workflows.
+  Usually that means taking vague problems, figuring out what actually matters,
+  and turning them into products, APIs, integrations, automations, or AI systems that people can use.
+</p>
+
+<p align="center" style="max-width:900px;margin:auto;line-height:1.8;">
+  AI is useful when it makes the workflow better.
+  Otherwise it is just expensive autocomplete.
 </p>
 
 <hr/>
@@ -34,22 +49,50 @@
 <h2 align="center">Now</h2>
 
 <p align="center" style="max-width:900px;margin:auto;line-height:1.8;">
-  <strong>Software Engineer / AI Engineer</strong> working in <strong>AI</strong>, focused on creating great <strong>agentic systems</strong>
+  Forward-deployed / product engineering work around <strong>AI agents</strong>,
+  <strong>integrations</strong>, <strong>customer workflows</strong>, and <strong>production systems</strong>.
+</p>
+
+<p align="center" style="max-width:900px;margin:auto;line-height:1.8;">
+  Best fit: small senior teams, fast decisions, high ownership, real users.
+  I like problems where the shape is still unclear.
 </p>
 
 <hr/>
 
 <h2 align="center">Selected Work</h2>
 
-
 <ul style="max-width:900px;margin:auto;list-style:none;padding:0;line-height:1.9;">
   <li>
-    <strong>From 2023-2026 -> Shipped 5 production products</strong> across B2B and consumer, owning architecture, UX, UI, infrastructure, and deployment.
+    <strong>Shipped 5 production products from 2023–2026</strong> across B2B and consumer,
+    owning architecture, product, UX/UI, infrastructure, integrations, and deployment.
   </li>
   <li>
-    <strong>Delivered applied AI in real workflows</strong> (automation + augmentation) from FinText, to Fashion, to MusicTech (No, not the AI that replaced music. The boring AI kind of work).
+    <strong>Built applied AI systems inside real workflows</strong> across FinTech, Fashion, MusicTech,
+    entertainment operations, analytics, and internal automation.
+  </li>
+  <li>
+    <strong>Designed and built AI search / product-validation tools</strong> for finding whether real problems
+    are being discussed across forums, blogs, search results, and public data sources.
+  </li>
+  <li>
+    <strong>Built AI voice → transcript → task/workflow systems</strong> for production teams where misalignment
+    is expensive and manual follow-up is slow.
+  </li>
+  <li>
+    <strong>Designed API and integration layers</strong> between banks, POS systems, transaction data,
+    receipt-level details, and downstream data consumers.
+  </li>
+  <li>
+    <strong>Built analytics products for operational users</strong>, including mobile analytics used across
+    multiple markets by store managers, regional leaders, and executive leadership.
   </li>
 </ul>
+
+<p align="center" style="max-width:900px;margin:auto;line-height:1.8;">
+  Most of the interesting code is private, client-owned, or startup-owned.
+  The work is usually less “look at my repo” and more “make this thing work in production.”
+</p>
 
 <hr/>
 
@@ -63,7 +106,7 @@
 
 <hr/>
 
-<h2>Technical</h2>
+<h2 align="center">Technical</h2>
 
 <!--
 Icons: skillicons.dev can intermittently fail; this section uses jsDelivr-backed SVGs for better reliability.
@@ -73,7 +116,7 @@ Icons: skillicons.dev can intermittently fail; this section uses jsDelivr-backed
   <div style="display:flex;flex-direction:column;align-items:center;gap:40px;width:100%;margin:auto;">
     <!-- Languages -->
     <div style="width:100%;text-align:center;">
-      <h4>Languages I Work With</h4>
+      <h4>Languages I Actually Reach For</h4>
       <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;">
         <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript"/>
         <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"/>
@@ -87,7 +130,7 @@ Icons: skillicons.dev can intermittently fail; this section uses jsDelivr-backed
     </div>
     <!-- Core Stack -->
     <div style="width:100%;text-align:center;">
-      <h4>Core Stack</h4>
+      <h4>Core Product Stack</h4>
       <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;">
         <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter"/>
         <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"/>
@@ -109,10 +152,13 @@ Icons: skillicons.dev can intermittently fail; this section uses jsDelivr-backed
         <img src="https://img.shields.io/badge/Claude-AI-9146FF?style=flat-square&logo=anthropic" alt="Claude AI"/>
         <img src="https://img.shields.io/badge/OpenAI-GPT-00A67E?style=flat-square&logo=openai" alt="OpenAI GPT"/>
       </div>
+      <p style="max-width:760px;margin:12px auto 0 auto;line-height:1.7;">
+        Agents · summarization · classification · search · workflow automation · data extraction · guardrails · usefulness over vibes
+      </p>
     </div>
     <!-- Media & Integrations -->
     <div style="width:100%;text-align:center;">
-      <h4>Media · Integrations</h4>
+      <h4>Media · Integrations · External Systems</h4>
       <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;">
         <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ffmpeg/ffmpeg-original.svg" alt="FFmpeg"/>
         <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase"/>
@@ -122,6 +168,9 @@ Icons: skillicons.dev can intermittently fail; this section uses jsDelivr-backed
         <img src="https://img.shields.io/badge/Integrations-TikTok%2C%20Instagram%2C%20Facebook%2C%20Threads%2C%20Bluesky-informational?style=flat-square&color=0b7285"
              alt="Integrations with TikTok, Instagram, Facebook, Threads, Bluesky"
              style="max-width:100%;height:auto;"/>
+      </p>
+      <p style="max-width:760px;margin:12px auto 0 auto;line-height:1.7;">
+        APIs, webhooks, scheduled jobs, ugly data, auth flows, retries, edge cases, and the annoying parts that make products real.
       </p>
     </div>
     <!-- Tools & Workflow -->
@@ -154,6 +203,25 @@ Icons: skillicons.dev can intermittently fail; this section uses jsDelivr-backed
   </div>
 </div>
 
+<hr/>
+
+<h2 align="center">How I Like To Work</h2>
+
+<p align="center" style="max-width:900px;margin:auto;line-height:1.8;">
+  Fast. Direct. Close to users.
+</p>
+
+<p align="center" style="max-width:900px;margin:auto;line-height:1.8;">
+  Give me the problem, the context, and the constraints.
+  I will find a path through the mess and build what needs to exist.
+</p>
+
+<p align="center" style="max-width:900px;margin:auto;line-height:1.8;">
+  I am less useful in environments where progress requires five meetings about the meeting.
+</p>
+
+<hr/>
+
 <!-- Fun section (kept as an optional footer element) -->
 <div align="center" style="margin-top:1rem;">
   <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;max-width:900px;margin:auto;">
@@ -173,4 +241,57 @@ Icons: skillicons.dev can intermittently fail; this section uses jsDelivr-backed
   <img src="https://img.shields.io/github/followers/OskaraOskar?label=Followers&style=social" alt="GitHub followers"/>
 </p>
 
-<!-- discovery-keywords: oskar arnetz; ai; ai agents; applied ai; pragmatic ai; product engineering; b2b saas; systems design; flutter; react; firebase; google cloud; gcp; aws; typescript; javascript; python; ffmpeg; media pipelines; integrations; tiktok api; instagram api; facebook api; threads api; bluesky api; founder; builder; copenhagen; europe -->
+<p align="center">
+  Best place to reach me is LinkedIn.
+  Short message. Real context. No corporate poem.
+</p>
+
+<p align="center">
+  <a href="https://www.linkedin.com/in/oskar-arnetz/">linkedin.com/in/oskar-arnetz</a>
+</p>
+
+<!--
+discovery-keywords:
+oskar arnetz;
+applied ai;
+ai agents;
+pragmatic ai;
+product engineering;
+workflow automation;
+b2b saas;
+systems design;
+integrations;
+api design;
+rest api;
+cloud architecture;
+gcp;
+google cloud;
+firebase;
+aws;
+docker;
+typescript;
+javascript;
+python;
+dart;
+flutter;
+react;
+csharp;
+dotnet;
+ffmpeg;
+media pipelines;
+tiktok api;
+instagram api;
+facebook api;
+threads api;
+bluesky api;
+forward deployed engineer;
+founding engineer;
+cto;
+startup;
+builder;
+copenhagen;
+malmo;
+sweden;
+denmark;
+europe
+-->
