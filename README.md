@@ -158,17 +158,7 @@ Icons: skillicons.dev can intermittently fail; this section uses jsDelivr-backed
     </div>
     <!-- Media & Integrations -->
     <div style="width:100%;text-align:center;">
-      <h4>Media · Integrations · External Systems</h4>
-      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;">
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ffmpeg/ffmpeg-original.svg" alt="FFmpeg"/>
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase"/>
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript"/>
-      </div>
-      <p style="margin-top:8px;">
-        <img src="https://img.shields.io/badge/Integrations-TikTok%2C%20Instagram%2C%20Facebook%2C%20Threads%2C%20Bluesky-informational?style=flat-square&color=0b7285"
-             alt="Integrations with TikTok, Instagram, Facebook, Threads, Bluesky"
-             style="max-width:100%;height:auto;"/>
-      </p>
+      <h4>Integrations · External Systems</h4>
       <p style="max-width:760px;margin:12px auto 0 auto;line-height:1.7;">
         APIs, webhooks, scheduled jobs, ugly data, auth flows, retries, edge cases, and the annoying parts that make products real.
       </p>
