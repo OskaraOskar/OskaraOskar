@@ -26,7 +26,7 @@
 </div>
 
 <p align="center">
-  Say <strong>hi</strong> on LinkedIn — short message, real context, no pitch deck required.
+  Say <strong>hi</strong> on LinkedIn. A short message in your connections requests goes a long way. No pitch deck required.
 </p>
 
 <hr/>
@@ -34,14 +34,14 @@
 <h2 align="center">What I Do</h2>
 
 <p align="center" style="max-width:900px;margin:auto;line-height:1.8;">
-  I build software for messy real-world workflows.
-  Usually that means taking vague problems, figuring out what actually matters,
+  I build software for messy and unknown real-world workflows.
+  Usually, that means taking vague problems, figuring out what actually matters,
   and turning them into products, APIs, integrations, automations, or AI systems that people can use.
 </p>
 
 <p align="center" style="max-width:900px;margin:auto;line-height:1.8;">
-  AI is useful when it makes the workflow better.
-  Otherwise it is just expensive autocomplete.
+  AI is useful when it makes the workflow better, as is code, but just like movies and CGI, use it sparingly and when needed
+  Otherwise, it is just expensive autocomplete.
 </p>
 
 <hr/>
@@ -97,6 +97,9 @@
 <hr/>
 
 <div align="center" style="display:flex;flex-wrap:wrap;justify-content:center;">
+  <p align="center" style="max-width:900px;margin:auto;line-height:1.8;">
+  If you wonder how you get 212 commits in 1 day? Rebase and squash, my friend, rebase and squash.
+</p>
   <img
     src="https://github.com/OskaraOskar/OskaraOskar/blob/output/github-streak-stats.svg"
     alt="GitHub streak stats"
