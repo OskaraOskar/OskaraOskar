@@ -1,32 +1,16 @@
 {
-  "founder": "Oskar Arnetz",
-  "role": "CTO & Co-founder",
-  "domain": "Vertical SaaS & AI",
-  "tech": [
-    "TypeScript",
-    "Flutter",
-    "Dart",
-    "Firebase",
-    "AI",
-    "iOS",
-    "Android",
-    "Web"
+  "name": "Oskar Arnetz",
+  "role": "Product engineer",
+  "focus": [
+    "Applied AI",
+    "Product engineering",
+    "Systems integration",
+    "Cloud architecture"
   ],
-  "stage": "pre-seed",
-  "public": true,
-  "funding": "€300,000",
-  "expertise": [
-    "SaaS",
-    "AI Integration",
-    "Cloud Security",
-    "Mobile Development"
+  "principles": [
+    "Pragmatic delivery",
+    "Reliable systems",
+    "Useful outcomes"
   ],
-  "industries": [
-    "Ecommerce",
-    "SAAS",
-    "Fintech",
-    "MedTech",
-    "Automotive",
-    "Retail"
-  ]
+  "public": true
 }
