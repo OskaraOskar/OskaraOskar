@@ -1,290 +1,113 @@
-<p align="center"><em>Copenhagen · Europe/Stockholm (CET/CEST)</em></p>
-
-<div align="center" style="max-width:100%;padding:1rem;">
-  <img
-    src="https://capsule-render.vercel.app/api?type=venom&height=250&text=Oskar%20Arnetz&fontSize=75&color=gradient&animation=fadeIn"
-    alt="Oskar Arnetz — Applied AI / Product Engineering"
-    style="width:100%;max-width:1200px;height:auto;"
-  />
-</div>
-
-<div align="center" style="margin-top:-30px;">
-  <img
-    src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1100&color=F75C7E&center=true&vCenter=true&width=920&lines=Applied+AI+%7C+Product+Engineering;Messy+workflows+%E2%86%92+shipped+software;AI+agents+%C2%B7+integrations+%C2%B7+cloud+%C2%B7+APIs;5+production+products+shipped+%C2%B7+%E2%82%AC300K+raised;Less+theatre+%C2%B7+more+useful+systems"
-    alt="Typing intro for Oskar Arnetz"
-    style="max-width:100%;height:auto;"
-  />
-</div>
-
-<div align="center" style="margin:1rem;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;">
-  <a href="https://www.linkedin.com/in/oskar-arnetz/" target="_blank" rel="noopener">
-    <img src="https://img.shields.io/badge/LinkedIn-Message%20me-blue?style=for-the-badge&logo=linkedin" alt="LinkedIn — message Oskar Arnetz"/>
-  </a>
-  <a href="https://github.com/OskaraOskar" target="_blank" rel="noopener">
-    <img src="https://img.shields.io/badge/GitHub-OskaraOskar-black?style=for-the-badge&logo=github" alt="GitHub — Oskar Arnetz"/>
-  </a>
-</div>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/profile-light.svg">
+  <img src="./assets/profile-light.svg" alt="Animated orange paths converging into a simple line beneath the name Oskar Arnetz." width="100%">
+</picture>
 
 <p align="center">
-  Say <strong>hi</strong> on LinkedIn. A short message in your connections requests goes a long way. No pitch deck required.
+  <a href="https://www.linkedin.com/in/oskar-arnetz/"><img src="https://img.shields.io/badge/LinkedIn-Say%20hello-f97316?style=for-the-badge&logo=linkedin&logoColor=white" alt="Message Oskar Arnetz on LinkedIn"></a>
+  <a href="https://github.com/OskaraOskar"><img src="https://img.shields.io/badge/GitHub-OskaraOskar-262626?style=for-the-badge&logo=github&logoColor=white" alt="Oskar Arnetz on GitHub"></a>
 </p>
 
-<hr/>
+<h3 align="center">A bit about me</h3>
 
-<h2 align="center">What I Do</h2>
+I tend to choose the simplest approach that actually works. That means moving quickly when a decision is cheap, slowing down when mistakes are expensive, and leaving enough room to change course later.
 
-<p align="center" style="max-width:900px;margin:auto;line-height:1.8;">
-  I build software for messy and unknown real-world workflows.
-  Usually, that means taking vague problems, figuring out what actually matters,
-  and turning them into products, APIs, integrations, automations, or AI systems that people can use.
-</p>
+I care about finishing things, but not at the cost of making tomorrow harder than it needs to be. What deserves extra time depends on the problem.
 
-<p align="center" style="max-width:900px;margin:auto;line-height:1.8;">
-  AI is useful when it makes the workflow better, as is code, but just like movies and CGI, use it sparingly and when needed
-  Otherwise, it is just expensive autocomplete.
-</p>
+<h3 align="center">Where things get interesting</h3>
 
-<hr/>
+I like the moment when something complicated starts to feel simple. Not simplified by ignoring the awkward parts, but made understandable because the awkward parts have been worked through.
 
-<h2 align="center">Now</h2>
+<table>
+  <tr>
+    <td width="33%" valign="top">
+      <h3>Business logic</h3>
+      APIs are rarely the hard part. The real work is in the exceptions, handoffs, conflicting rules, missing information, and the gap between the documented process and what people actually do.
+    </td>
+    <td width="33%" valign="top">
+      <h3>Applied AI</h3>
+      The demo is usually easy. Things get interesting when the model has to be useful inside a real workflow, with sensible guardrails, clear failure states, and a reason to be there.
+    </td>
+    <td width="33%" valign="top">
+      <h3>The whole product</h3>
+      Sometimes the simple answer only appears when product, UX, backend, data, infrastructure, integrations, and operations are treated as one problem instead of separate tickets.
+    </td>
+  </tr>
+</table>
 
-<p align="center" style="max-width:900px;margin:auto;line-height:1.8;">
-  Forward-deployed / product engineering work around <strong>AI agents</strong>,
-  <strong>integrations</strong>, <strong>customer workflows</strong>, and <strong>production systems</strong>.
-</p>
+There is beauty in a system that feels obvious on the outside, even when a lot of careful thinking was required to make it feel that way.
 
-<p align="center" style="max-width:900px;margin:auto;line-height:1.8;">
-  Best fit: small senior teams, fast decisions, high ownership, real users.
-  I like problems where the shape is still unclear.
-</p>
+<h3 align="center">Receipts</h3>
 
-<hr/>
-
-<h2 align="center">Selected Work</h2>
-
-<ul style="max-width:900px;margin:auto;list-style:none;padding:0;line-height:1.9;">
-  <li>
-    <strong>Shipped 5 production products from 2023–2026</strong> across B2B and consumer,
-    owning architecture, product, UX/UI, infrastructure, integrations, and deployment.
-  </li>
-  <li>
-    <strong>Built applied AI systems inside real workflows</strong> across FinTech, Fashion, MusicTech,
-    entertainment operations, analytics, and internal automation.
-  </li>
-  <li>
-    <strong>Designed and built AI search / product-validation tools</strong> for finding whether real problems
-    are being discussed across forums, blogs, search results, and public data sources.
-  </li>
-  <li>
-    <strong>Built AI voice → transcript → task/workflow systems</strong> for production teams where misalignment
-    is expensive and manual follow-up is slow.
-  </li>
-  <li>
-    <strong>Designed API and integration layers</strong> between banks, POS systems, transaction data,
-    receipt-level details, and downstream data consumers.
-  </li>
-  <li>
-    <strong>Built analytics products for operational users</strong>, including mobile analytics used across
-    multiple markets by store managers, regional leaders, and executive leadership.
-  </li>
-</ul>
-
-<p align="center" style="max-width:900px;margin:auto;line-height:1.8;">
-  Most of the interesting code is private, client-owned, or startup-owned.
-  The work is usually less “look at my repo” and more “make this thing work in production.”
-</p>
-
-<hr/>
-
-<div align="center" style="display:flex;flex-wrap:wrap;justify-content:center;">
-  <p align="center" style="max-width:900px;margin:auto;line-height:1.8;">
-  If you wonder how you get 212 commits in 1 day? Rebase and squash, my friend, rebase and squash.
-</p>
-  <img
-    src="https://github.com/OskaraOskar/OskaraOskar/blob/output/github-streak-stats.svg"
-    alt="GitHub streak stats"
-    style="width:100%;max-width:900px;border-radius:6px;height:auto;"
-  />
-</div>
-
-<hr/>
-
-<h2 align="center">Technical</h2>
-
-<!--
-Icons: skillicons.dev can intermittently fail; this section uses jsDelivr-backed SVGs for better reliability.
--->
-
-<div align="center" style="background:linear-gradient(180deg,#0d1117 0%,#161b22 100%);padding:20px;border-radius:10px;color:#fff;max-width:1000px;margin:auto;">
-  <div style="display:flex;flex-direction:column;align-items:center;gap:40px;width:100%;margin:auto;">
-    <!-- Languages -->
-    <div style="width:100%;text-align:center;">
-      <h4>Languages I Actually Reach For</h4>
-      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;">
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript"/>
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"/>
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"/>
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="Dart"/>
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#"/>
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/solidity/solidity-original.svg" alt="Solidity"/>
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"/>
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"/>
-      </div>
-    </div>
-    <!-- Core Stack -->
-    <div style="width:100%;text-align:center;">
-      <h4>Core Product Stack</h4>
-      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;">
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter"/>
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"/>
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase"/>
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud"/>
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS"/>
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker"/>
-      </div>
-    </div>
-    <!-- AI -->
-    <div style="width:100%;text-align:center;">
-      <h4>AI & Applied Intelligence</h4>
-      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;">
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"/>
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud"/>
-      </div>
-      <div style="margin-top:8px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;">
-        <img src="https://img.shields.io/badge/Gemini-AI-blueviolet?style=flat-square&logo=googlecloud" alt="Gemini AI"/>
-        <img src="https://img.shields.io/badge/Claude-AI-9146FF?style=flat-square&logo=anthropic" alt="Claude AI"/>
-        <img src="https://img.shields.io/badge/OpenAI-GPT-00A67E?style=flat-square&logo=openai" alt="OpenAI GPT"/>
-      </div>
-      <p style="max-width:760px;margin:12px auto 0 auto;line-height:1.7;">
-        Agents · summarization · classification · search · workflow automation · data extraction · guardrails · usefulness over vibes
-      </p>
-    </div>
-    <!-- Media & Integrations -->
-    <div style="width:100%;text-align:center;">
-      <h4>Integrations · External Systems</h4>
-      <p style="max-width:760px;margin:12px auto 0 auto;line-height:1.7;">
-        APIs, webhooks, scheduled jobs, ugly data, auth flows, retries, edge cases, and the annoying parts that make products real.
-      </p>
-    </div>
-    <!-- Tools & Workflow -->
-    <div style="width:100%;text-align:center;">
-      <h4>Tools & Workflow</h4>
-      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;">
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"/>
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"/>
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VSCode"/>
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"/>
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/notion/notion-original.svg" alt="Notion"/>
-        <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman"/>
-      </div>
-    </div>
-    <!-- Visual Metrics -->
-    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;width:100%;">
-      <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/github-top-langs.svg"
-           alt="Top languages chart"
-           style="width:100%;max-width:480px;flex:1;border-radius:6px;height:auto;"/>
-      <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/github-contribution-grid-snake.svg"
-           alt="Contribution snake"
-           style="width:100%;max-width:480px;flex:1;border-radius:6px;height:auto;"/>
-    </div>
-    <!-- Skyline -->
-    <div style="width:100%;text-align:center;">
-      <img src="https://github.com/OskaraOskar/OskaraOskar/blob/output/metrics.skyline.svg"
-           alt="GitHub skyline visualization"
-           style="width:100%;height:auto;border-radius:6px;"/>
-    </div>
-  </div>
-</div>
-
-<hr/>
-
-<h2 align="center">How I Like To Work</h2>
-
-<p align="center" style="max-width:900px;margin:auto;line-height:1.8;">
-  Fast. Direct. Close to users.
-</p>
-
-<p align="center" style="max-width:900px;margin:auto;line-height:1.8;">
-  Give me the problem, the context, and the constraints.
-  I will find a path through the mess and build what needs to exist.
-</p>
-
-<p align="center" style="max-width:900px;margin:auto;line-height:1.8;">
-  I am less useful in environments where progress requires five meetings about the meeting.
-</p>
-
-<hr/>
-
-<!-- Fun section (kept as an optional footer element) -->
-<div align="center" style="margin-top:1rem;">
-  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;max-width:900px;margin:auto;">
-    <img src="https://readme-jokes.vercel.app/api?theme=radical"
-         alt="Jokes card"
-         style="flex:1;min-width:280px;max-width:420px;border-radius:6px;height:auto;"/>
-    <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical"
-         alt="Quote card"
-         style="flex:1;min-width:280px;max-width:420px;border-radius:6px;height:auto;"/>
-  </div>
-</div>
-
-<hr/>
+Most of my work lives in private repositories, so GitHub only tells part of the story. These visuals refresh every night, and the streak includes private contribution counts.
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=OskaraOskar&style=flat-square&color=blue" alt="Profile views"/>
-  <img src="https://img.shields.io/github/followers/OskaraOskar?label=Followers&style=social" alt="GitHub followers"/>
+  <img src="https://raw.githubusercontent.com/OskaraOskar/OskaraOskar/output/github-streak-stats.svg" alt="GitHub contribution streak for Oskar Arnetz, including private contribution counts and updated nightly." width="495">
 </p>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/OskaraOskar/OskaraOskar/output/github-contribution-grid-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/OskaraOskar/OskaraOskar/output/github-contribution-grid-snake.svg">
+  <img src="https://raw.githubusercontent.com/OskaraOskar/OskaraOskar/output/github-contribution-grid-snake.svg" alt="Animated GitHub contribution graph for Oskar Arnetz." width="100%">
+</picture>
+
+<p align="center"><sub>If you ever see 212 commits in one day: rebase and squash, my friend. Rebase and squash.</sub></p>
+
+<h3 align="center">Toolbox</h3>
+
+These are the tools I reach for most often, not the edge of what I know. I have learned and experimented with plenty of others, from Solidity to building my own basic AI system years ago.
+
+If a problem calls for something else, I am comfortable learning it.
+
+<p align="center"><strong>Languages</strong></p>
 
 <p align="center">
-  Best place to reach me is LinkedIn.
-  Short message. Real context. No corporate poem.
+  <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" title="TypeScript">
+  &nbsp;
+  <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript">
+  &nbsp;
+  <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" title="Python">
+  &nbsp;
+  <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C sharp" title="C sharp">
+  &nbsp;
+  <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="Dart" title="Dart">
 </p>
+
+<p align="center"><strong>Products and platforms</strong></p>
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/oskar-arnetz/">linkedin.com/in/oskar-arnetz</a>
+  <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" title="React">
+  &nbsp;
+  <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" title="Flutter">
+  &nbsp;
+  <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" title="Firebase">
+  &nbsp;
+  <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud" title="Google Cloud">
+  &nbsp;
+  <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" title="AWS">
+  &nbsp;
+  <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" title="Docker">
 </p>
 
-<!--
-discovery-keywords:
-oskar arnetz;
-applied ai;
-ai agents;
-pragmatic ai;
-product engineering;
-workflow automation;
-b2b saas;
-systems design;
-integrations;
-api design;
-rest api;
-cloud architecture;
-gcp;
-google cloud;
-firebase;
-aws;
-docker;
-typescript;
-javascript;
-python;
-dart;
-flutter;
-react;
-csharp;
-dotnet;
-ffmpeg;
-media pipelines;
-tiktok api;
-instagram api;
-facebook api;
-threads api;
-bluesky api;
-forward deployed engineer;
-founding engineer;
-cto;
-startup;
-builder;
-copenhagen;
-malmo;
-sweden;
-denmark;
-europe
--->
+<p align="center"><strong>Tools</strong></p>
+
+<p align="center">
+  <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" title="Git">
+  &nbsp;
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/github/f5f5f5">
+    <source media="(prefers-color-scheme: light)" srcset="https://cdn.simpleicons.org/github/181717">
+    <img height="44" src="https://cdn.simpleicons.org/github/181717" alt="GitHub" title="GitHub">
+  </picture>
+  &nbsp;
+  <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="Visual Studio Code" title="Visual Studio Code">
+  &nbsp;
+  <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" title="Figma">
+  &nbsp;
+  <img height="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman" title="Postman">
+</p>
+
+<h3 align="center">Say hello</h3>
+
+I am based in Copenhagen and work on Europe/Stockholm time. The easiest way to reach me is [LinkedIn](https://www.linkedin.com/in/oskar-arnetz/). A short message with a little context is plenty.

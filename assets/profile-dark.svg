@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+  <title id="title">Oskar Arnetz profile header</title>
+  <desc id="desc">Orange and gray paths move from several curves into one clear line beneath Oskar Arnetz's name.</desc>
+  <defs>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M30 0H0V30" fill="none" stroke="#404040" stroke-width="1" opacity=".35"/>
+    </pattern>
+    <linearGradient id="fade" x1="0" x2="1">
+      <stop offset="0" stop-color="#fb923c" stop-opacity="0"/>
+      <stop offset=".18" stop-color="#fb923c"/>
+      <stop offset="1" stop-color="#f97316"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="frame"><rect x="1" y="1" width="1198" height="298" rx="24"/></clipPath>
+    <style>
+      .moving { stroke-dasharray: 14 18; animation: move 2.6s linear infinite; }
+      .pulse { animation: pulse 2.6s ease-in-out infinite; transform-origin: 600px 225px; }
+      @keyframes move { to { stroke-dashoffset: -64; } }
+      @keyframes pulse { 0%,100% { opacity:.55; transform:scale(.82); } 50% { opacity:1; transform:scale(1.12); } }
+    </style>
+  </defs>
+
+  <rect x="1" y="1" width="1198" height="298" rx="24" fill="#171717" stroke="#404040" stroke-width="2"/>
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="300" fill="url(#grid)"/>
+    <circle cx="600" cy="80" r="76" fill="#f97316" opacity=".08" filter="url(#glow)"/>
+
+    <text x="600" y="112" fill="#fafaf9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="76" font-weight="760" text-anchor="middle" letter-spacing="-2">Oskar Arnetz</text>
+    <rect x="498" y="132" width="204" height="5" rx="2.5" fill="#f97316"/>
+    <text x="600" y="168" fill="#a3a3a3" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="16" text-anchor="middle" letter-spacing="2">COPENHAGEN &#183; EUROPE/STOCKHOLM</text>
+
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M54 214 C132 162 193 270 275 216 S421 168 507 225 C545 250 566 237 600 225" stroke="#737373" stroke-width="4" opacity=".75"/>
+      <path d="M54 251 C146 280 186 176 282 226 S430 275 512 222 C548 199 571 212 600 225" stroke="#fafaf9" stroke-width="4" opacity=".92"/>
+      <path d="M54 184 C154 178 177 242 274 241 S417 194 507 218 C548 229 568 229 600 225" stroke="#f97316" stroke-width="6" opacity=".95"/>
+      <path d="M600 225 H1123" stroke="#525252" stroke-width="4"/>
+      <path class="moving" d="M600 225 H1123" stroke="url(#fade)" stroke-width="7"/>
+      <path d="M1110 212 L1124 225 L1110 238" stroke="#fb923c" stroke-width="6"/>
+    </g>
+
+    <g fill="#171717" stroke-width="4">
+      <circle cx="54" cy="184" r="7" stroke="#f97316"/>
+      <circle cx="54" cy="214" r="7" stroke="#737373"/>
+      <circle cx="54" cy="251" r="7" stroke="#fafaf9"/>
+    </g>
+    <circle class="pulse" cx="600" cy="225" r="17" fill="#f97316" opacity=".8"/>
+    <circle cx="600" cy="225" r="6" fill="#fafaf9"/>
+  </g>
+</svg>

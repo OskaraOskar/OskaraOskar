@@ -1,233 +1,83 @@
-name: Generate README Assets
+name: Refresh GitHub profile visuals
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Daily at midnight UTC
-  workflow_dispatch:
+    - cron: "15 1 * * *"
   push:
-    branches: ["master", "main"]
+    paths:
+      - ".github/workflows/github-stats.yml"
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  generate-snake:
-    name: Generate Snake Contribution Graph
+  refresh-profile-visuals:
+    name: Refresh profile SVGs
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 5
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Generate Snake SVG
-        uses: Platane/snk@v3
+      - name: Check out the output branch
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
         with:
-          github_user_name: OskaraOskar
-          outputs: dist/github-contribution-grid-snake.svg
+          ref: output
+          fetch-depth: 1
 
-      - name: Upload Snake Artifact
-        uses: actions/upload-artifact@v4
+      - name: Check out the streak generator
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
         with:
-          name: snake
-          path: dist/github-contribution-grid-snake.svg
+          repository: DenverCoder1/github-readme-streak-stats
+          ref: 2c2e936823881ec94120a207d7a534520eeadf8f
+          path: .streak-generator
+          persist-credentials: false
 
-  metrics-calendar:
-    runs-on: ubuntu-latest
-    timeout-minutes: 60
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Generate Calendar Metrics
-        uses: lowlighter/metrics@latest
+      - name: Set up PHP
+        uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # releases/v2
         with:
-          token: ${{ secrets.GH_STATS_TOKEN }}
-          user: OskaraOskar
-          filename: metrics.calendar.svg
-          template: classic
-          base: ""
-          plugin_calendar: yes
-          plugin_calendar_limit: 1
-          output_action: commit
-          committer_branch: output
-          committer_message: "Update calendar metrics"
+          php-version: "8.3"
+          extensions: intl, curl
+          coverage: none
+          github-token: ""
 
-      - name: Download generated file for artifacts
-        run: |
-          mkdir -p dist
-          # The file is committed to the output branch, but we also want it for artifacts
-          # We'll download it from the branch that was just updated
-          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-               -H "Accept: application/vnd.github.v3.raw" \
-               -o dist/metrics.calendar.svg \
-               "https://api.github.com/repos/OskaraOskar/OskaraOskar/contents/metrics.calendar.svg?ref=output" || \
-          # Fallback: if the file doesn't exist yet, create a placeholder
-          cp dist/metrics.calendar.svg dist/metrics.calendar.svg 2>/dev/null || echo "<!-- Calendar metrics placeholder -->" > dist/metrics.calendar.svg
+      - name: Install generator dependencies
+        working-directory: .streak-generator
+        run: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: metrics-calendar
-          path: dist/metrics.calendar.svg
-
-  metrics-habits:
-    runs-on: ubuntu-latest
-    timeout-minutes: 60
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Generate Isometric Calendar Metrics
-        uses: lowlighter/metrics@latest
-        with:
-          token: ${{ secrets.GH_STATS_TOKEN }}
-          user: OskaraOskar
-          filename: metrics.isocalendar.svg
-          base: ""
-          plugin_habits: yes
-          plugin_habits_facts: yes
-          plugin_habits_charts: yes
-          plugin_habits_charts_type: graph
-          config_timezone: Europe/Stockholm
-          output_action: commit
-          committer_branch: output
-          committer_message: "Update isocalendar metrics"
-
-      - name: Download generated file for artifacts
-        run: |
-          mkdir -p dist
-          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-               -H "Accept: application/vnd.github.v3.raw" \
-               -o dist/metrics.isocalendar.svg \
-               "https://api.github.com/repos/OskaraOskar/OskaraOskar/contents/metrics.isocalendar.svg?ref=output" || \
-          echo "<!-- Isocalendar metrics placeholder -->" > dist/metrics.isocalendar.svg
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: metrics-isocalendar
-          path: dist/metrics.isocalendar.svg
-
-  metrics-skyline:
-    runs-on: ubuntu-latest
-    timeout-minutes: 60
-    continue-on-error: true
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Generate Skyline Metrics
-        uses: lowlighter/metrics@latest
-        with:
-          token: ${{ secrets.GH_STATS_TOKEN }}
-          user: OskaraOskar
-          filename: metrics.skyline.svg
-          template: classic
-          base: ""
-          plugin_skyline: yes
-          plugin_skyline_frames: 120
-          plugin_skyline_quality: 0.5
-          plugin_skyline_settings: |
-            {
-              "url": "https://honzaap.github.io/GithubCity/?name=OskaraOskar&year=2025",
-              "ready": "[...document.querySelectorAll('.display-info span')].map(span => span.innerText).includes('OskaraOskar')",
-              "wait": 4,
-              "hide": ".github-corner, .footer-link, .buttons-options, .mobile-rotate, .display-info span:first-child"
-            }          
-          output_action: commit
-          committer_branch: output
-          committer_message: "Update skyline metrics"
-
-      - name: Download generated file for artifacts
-        run: |
-          mkdir -p dist
-          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-               -H "Accept: application/vnd.github.v3.raw" \
-               -o dist/metrics.skyline.svg \
-               "https://api.github.com/repos/OskaraOskar/OskaraOskar/contents/metrics.skyline.svg?ref=output" || \
-          echo "<!-- Skyline metrics placeholder -->" > dist/metrics.skyline.svg
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: metrics-skyline
-          path: dist/metrics.skyline.svg
-
-  metrics-user:
-    runs-on: ubuntu-latest
-    timeout-minutes: 60
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Generate User Metrics
-        uses: lowlighter/metrics@latest
-        with:
-          token: ${{ secrets.GH_STATS_TOKEN }}
-          user: OskaraOskar
-          filename: metrics.user.svg
-          template: classic
-          base: header, activity, repositories, metadata
-          output_action: commit
-          committer_branch: output
-          committer_message: "Update user metrics"
-
-      - name: Download generated file for artifacts
-        run: |
-          mkdir -p dist
-          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-               -H "Accept: application/vnd.github.v3.raw" \
-               -o dist/metrics.user.svg \
-               "https://api.github.com/repos/OskaraOskar/OskaraOskar/contents/metrics.user.svg?ref=output" || \
-          echo "<!-- User metrics placeholder -->" > dist/metrics.user.svg
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: metrics-user
-          path: dist/metrics.user.svg
-
-  external-stats:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    steps:
-      - name: Create Output Directory
-        run: mkdir -p dist
-
-      - name: Fetch GitHub Readme Stats SVGs
-        run: |
-          curl -L "https://github-readme-stats-red-eight-40.vercel.app/api?username=OskaraOskar&show_icons=true&theme=radical&count_private=true&include_all_commits=true" -o dist/github-readme-stats.svg
-          curl -L "https://github-readme-stats-red-eight-40.vercel.app/api/top-langs/?username=OskaraOskar&layout=compact&theme=radical&count_private=true" -o dist/github-top-langs.svg
-          curl -L "https://github-readme-streak-stats.herokuapp.com/?user=OskaraOskar&theme=radical&hide_border=true" -o dist/github-streak-stats.svg
-
-      - name: Upload External Stats
-        uses: actions/upload-artifact@v4
-        with:
-          name: external-stats
-          path: dist/*.svg
-
-  deploy-assets:
-    name: Deploy All Generated Assets
-    runs-on: ubuntu-latest
-    needs:
-      - generate-snake
-      - metrics-calendar
-      - metrics-habits
-      - metrics-skyline
-      - metrics-user
-      - external-stats
-    steps:
-      - name: Download All Artifacts
-        uses: actions/download-artifact@v4
-        with:
-          path: dist
-
-      - name: Flatten Directory
-        run: |
-          mkdir flat
-          find dist -type f -exec cp {} flat/ \;
-
-      - name: Deploy to Output Branch
-        uses: crazy-max/ghaction-github-pages@v4
-        with:
-          target_branch: output
-          build_dir: flat
-          commit_message: "Deploy all GitHub visual assets"
+      - name: Require the private contribution token
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_STATS_TOKEN: ${{ secrets.GH_STATS_TOKEN }}
+        run: |
+          if [ -z "${GH_STATS_TOKEN}" ]; then
+            echo "::error::GH_STATS_TOKEN is required to generate the streak card."
+            exit 1
+          fi
+
+      - name: Generate the streak card
+        env:
+          TOKEN: ${{ secrets.GH_STATS_TOKEN }}
+        run: |
+          php .streak-generator/bin/generate-card.php \
+            --options="user=${GITHUB_REPOSITORY_OWNER}&theme=radical&hide_border=true" \
+            --path=github-streak-stats.svg
+
+      - name: Generate the contribution snakes
+        uses: Platane/snk/svg-only@d8f6715049803e982ee5ff501b6b9b7d5deeb09b # v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            github-contribution-grid-snake.svg?palette=github-light&color_snake=#ea580c&color_dots=#ebedf0,#fed7aa,#fdba74,#fb923c,#c2410c
+            github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=#fb923c&color_dots=#161b22,#431407,#7c2d12,#c2410c,#fb923c
+
+      - name: Publish changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add github-streak-stats.svg github-contribution-grid-snake.svg github-contribution-grid-snake-dark.svg
+
+          if git diff --cached --quiet; then
+            echo "Streak card is already current."
+            exit 0
+          fi
+
+          git commit -m "chore(profile): refresh GitHub visuals"
+          git push origin HEAD:output
